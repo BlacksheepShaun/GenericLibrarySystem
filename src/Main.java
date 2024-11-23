@@ -27,5 +27,14 @@ public class Main {
         System.out.println("Magazines in Library:");
         magazineLibrary.displayItems();
 
+        Member member = new Member("John Doe", "jonh110");
+        Book bookToBorrow = bookLibrary.findById("1");
+        if (bookToBorrow != null) {
+            Transaction<Book> transaction = new Transaction<Book>(member, bookToBorrow);
+            System.out.println("Transaction Detail\n");
+            System.out.println(transaction.getDetails());
+
+        }
+
     }
 }
