@@ -7,6 +7,11 @@ public class Library<T extends LibraryItem> { //T can only be either LibraryItem
 // which would make it impossible to use methods specific to LibraryItem.
 
     private List<T> items = new ArrayList<>();
+    private AccountManager accountManager;
+
+    public Library(AccountManager accountManager) {
+        this.accountManager = accountManager;
+    }
 
 
     public void addItem(T item){
@@ -22,10 +27,14 @@ public class Library<T extends LibraryItem> { //T can only be either LibraryItem
         return null;
     }
 
-    public void displayItems(){
-        for (T item : items){
-            System.out.println(item.getId() + ". " +item.getTitle()+ item.getDetails());
+    public void displayItems(String username){
+        if(accountManager.isLoggedIn(username)){
+            for (T item : items){
+                System.out.println(item.getId() + ". " +item.getTitle()+ item.getDetails());
+            }
         }
+        else System.out.println("You are not logged in");
+
     }
 
 
