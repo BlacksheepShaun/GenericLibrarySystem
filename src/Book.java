@@ -4,7 +4,7 @@ public class Book implements LibraryItem {
     private String title;
     private String author;
 
-    public Book(String Id, String Title, String Author) {
+    public Book(String id, String title, String author) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -21,14 +21,10 @@ public class Book implements LibraryItem {
     }
 
     @Override
-    public String getAuthor(){
-        return author;
+    public String getDetails(){
+        return " by " + author;
     }
 
-    @Override
-    public String getDetails(){
-        return "Book by " + author;
-    }
 
 }
 
